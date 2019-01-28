@@ -38,11 +38,13 @@ func handler(request: HTTPRequest, response: HTTPResponse) {
 var routes = Routes()
 let authController = AuthController()
 let exitController = ExitController()
+let registerController = RegisterController()
 
 routes.add(method: .get, uri: "/", handler: handler)
 
 routes.add(method: .post, uri: "/login", handler: authController.register)
 routes.add(method: .get, uri: "/logout", handler: exitController.register)
+routes.add(method: .post, uri: "/registerUser", handler: registerController.register)
 
 routes.add(method: .get, uri: "/**",
 		   handler: StaticFileHandler(documentRoot: "./webroot", allowResponseFilters: true).handleRequest)
