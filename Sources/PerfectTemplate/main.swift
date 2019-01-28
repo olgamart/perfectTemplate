@@ -36,7 +36,11 @@ func handler(request: HTTPRequest, response: HTTPResponse) {
 //		directory (which must be located in the current working directory).
 //	* Performs content compression on outgoing data when appropriate.
 var routes = Routes()
+let authController = AuthController()
 routes.add(method: .get, uri: "/", handler: handler)
+
+routes.add(method: .post, uri: "/login", handler: authController.register)
+
 routes.add(method: .get, uri: "/**",
 		   handler: StaticFileHandler(documentRoot: "./webroot", allowResponseFilters: true).handleRequest)
 try HTTPServer.launch(name: "localhost",
