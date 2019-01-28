@@ -40,6 +40,7 @@ let authController = AuthController()
 let exitController = ExitController()
 let registerController = RegisterController()
 let changeUserDataController = ChangeUserDataController()
+let productController = ProductController()
 
 routes.add(method: .get, uri: "/", handler: handler)
 
@@ -47,6 +48,7 @@ routes.add(method: .post, uri: "/login", handler: authController.register)
 routes.add(method: .get, uri: "/logout", handler: exitController.register)
 routes.add(method: .post, uri: "/registerUser", handler: registerController.register)
 routes.add(method: .post, uri: "/changeUserData", handler: changeUserDataController.register)
+routes.add(method: .get, uri: "/getGoodById", handler: productController.register)
 
 
 routes.add(method: .get, uri: "/**",
