@@ -43,6 +43,7 @@ let changeUserDataController = ChangeUserDataController()
 let productController = ProductController()
 let productsListController = ProductsListController()
 let reviewController = ReviewController()
+let removeReviewController = RemoveReviewController()
 
 routes.add(method: .get, uri: "/", handler: handler)
 
@@ -53,6 +54,7 @@ routes.add(method: .post, uri: "/changeUserData", handler: changeUserDataControl
 routes.add(method: .get, uri: "/getGoodById", handler: productController.register)
 routes.add(method: .get, uri: "/catalogData", handler: productsListController.register)
 routes.add(method: .post, uri: "/addReview", handler: reviewController.register)
+routes.add(method: .get, uri: "/removeReview", handler: removeReviewController.register)
 
 
 routes.add(method: .get, uri: "/**",
