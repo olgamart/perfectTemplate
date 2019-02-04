@@ -11,13 +11,7 @@ import PerfectHTTP
 class ChangeUserDataController {
     let register: (HTTPRequest, HTTPResponse) -> () = { request, response in
         
-        guard  request.param(name: "id_user") == "123" &&
-            request.param(name: "username") != nil &&
-            request.param(name: "password") != nil &&
-            request.param(name: "email") != nil &&
-            request.param(name: "gender") != nil &&
-            request.param(name: "credit_card") != nil &&
-            request.param(name: "bio") != nil
+        guard let str = request.postBodyString , let data = str.data(using: .utf8)
             else {
                 response.completed(status: HTTPResponseStatus.custom(code: 500, message: "wrong user data"))
                 return
