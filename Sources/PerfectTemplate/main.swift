@@ -45,6 +45,9 @@ let productsListController = ProductsListController()
 let reviewController = ReviewController()
 let removeReviewController = RemoveReviewController()
 let reviewsListController = ReviewsListController()
+let addProductController = AddProductController()
+let deleteProductController = DeleteProductController()
+let orderPaymentController = OrderPaymentController()
 
 routes.add(method: .get, uri: "/", handler: handler)
 
@@ -57,7 +60,9 @@ routes.add(method: .get, uri: "/catalogData", handler: productsListController.re
 routes.add(method: .post, uri: "/addReview", handler: reviewController.register)
 routes.add(method: .get, uri: "/removeReview", handler: removeReviewController.register)
 routes.add(method: .get, uri: "/reviewsList", handler: reviewsListController.register)
-
+routes.add(method: .get, uri: "/addToBasket", handler: addProductController.register)
+routes.add(method: .get, uri: "/deleteFromBasket", handler: deleteProductController.register)
+routes.add(method: .post, uri: "/orderPayment", handler: orderPaymentController.register)
 
 routes.add(method: .get, uri: "/**",
 		   handler: StaticFileHandler(documentRoot: "./webroot", allowResponseFilters: true).handleRequest)
