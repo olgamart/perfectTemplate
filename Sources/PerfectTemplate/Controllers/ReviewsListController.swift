@@ -10,7 +10,7 @@ import PerfectHTTP
 
 class ReviewsListController {
     let register: (HTTPRequest, HTTPResponse) -> () = { request, response in
-        guard  request.param(name: "page_number") == "1"
+        guard  request.param(name: "id_product") == "123"
             else {
                 response.completed(status: HTTPResponseStatus.custom(code: 401, message: "incorrect data"))
                 return
@@ -18,12 +18,16 @@ class ReviewsListController {
         
         let responseData: Array <[String:Any]> = [
             [
-                "id_user": 123,
-                "text": "Отзыв на ноутбук"
+                "id_product": 123,
+                "id_user": 115,
+                "user_name": "Александр",
+                "text": "Ноутбук хорошо подходит для офисной работы и студентам."
             ],
             [
+                "id_product": 123,
                 "id_user": 456,
-                "text": "Отзыв на мышку"
+                "user_name": "Петр",
+                "text": "Ноутбук понравился. Красивый дизайн, хорошие характеристики."
             ]
         ]
         
