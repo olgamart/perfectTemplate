@@ -10,7 +10,7 @@ import PerfectHTTP
 
 class AuthController {
     let register: (HTTPRequest, HTTPResponse) -> () = { request, response in
-        guard  request.param(name: "username") != nil && request.param(name: "password") != nil
+        guard  request.param(name: "username") != "" && request.param(name: "password") != ""
             else {
                 response.completed(status: HTTPResponseStatus.custom(code: 401, message: "incorrect login and password"))
                 return
